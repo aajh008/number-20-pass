@@ -18,7 +18,11 @@ function Random() {
 function GuessNum() {
      GuessedNum = parseInt(document.forms[0].guess.value);
      document.forms[0].guess.value = GuessedNum;
-
+		 if(NumberOfGuesses >= 20){
+			 response = "횟수 초과!"
+			 var check = confirm("횟수 초과입니다");
+			 self.close();
+		 }
      if (GuessedNum < myGuessedNumber) response = "아마도 그것보다 높을걸요!";
      if (GuessedNum > myGuessedNumber) response = "아마도 그것보다 낮을걸요!";
      if ((!GuessedNum) || (GuessedNum < MinNum) || (GuessedNum > MaxNum)) {
@@ -91,25 +95,22 @@ function NewGame() {
 	<table>
 	<tr>
 		<td>메세지 :</td>
-		<td><input type="text" name="result" size="25"></td>
+		<td><input type="text" name="result" size="25" readonly></td>
 	</tr>
 	<tr>
 		<td>시도 횟수 :</td>
-		<td><input type="text" name="guesses" size="3"></td>
+		<td><input type="text" name="guesses" size="3" readonly></td>
 	</tr>
 	<tr>
 		<td>이전 점수 :</td>
-		<td><input type="text" name="lastnum" size="15"></td>
+		<td><input type="text" name="lastnum" size="15" readonly></td>
 	</tr>
 	<tr>
 		<td>총점수 :</td>
-		<td><input type="text" name="storenum" size="20"></td>
+		<td><input type="text" name="storenum" size="20" readonly></td>
 	</tr>
 	</table>
 </form>
 
 </body>
 </html>
- 
-
- 
